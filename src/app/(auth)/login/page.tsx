@@ -25,7 +25,7 @@ const Page: FC = () => {
       <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div className="w-full flex flex-col items-center max-w-md space-y-8">
           <div className="flex flex-col items-center gap-8">
-            <h1 className="mt-6 text-center text-5xl font-semibold text-indigo-700">
+            <h1 className="mt-6 text-center text-[2.9rem] font-semibold text-indigo-700">
               {"<"}Hello World{" />"}
               <br />
               <span className="text-2xl text-slate-800">Let&apos;s Have a Chat</span>
