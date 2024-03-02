@@ -28,7 +28,7 @@ const Page: FC = () => {
             <h1 className="mt-6 text-center text-5xl font-semibold text-indigo-700">
               {"<"}Hello World{" />"}
               <br />
-              <span className="text-2xl text-slate-800">Let's Have a Chat</span>
+              <span className="text-2xl text-slate-800">Let&apos;s Have a Chat</span>
             </h1>
             <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
               Sign in to your account
