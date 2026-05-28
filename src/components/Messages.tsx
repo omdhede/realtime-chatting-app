@@ -1,6 +1,6 @@
 'use client'
 
-import { pusherClient } from '@/lib/pusher'
+import { pusherClient } from '@/lib/pusher-client'
 import { cn, toPusherKey } from '@/lib/utils'
 import { Message } from '@/lib/validations/message'
 import { format } from 'date-fns'

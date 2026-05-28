@@ -23,3 +23,8 @@ interface FriendRequest {
   senderId: string
   receiverId: string
 }
+
+interface IncomingFriendRequest {
+  senderId: string
+  senderEmail: string
+}

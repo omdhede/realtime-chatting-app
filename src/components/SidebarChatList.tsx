@@ -1,6 +1,6 @@
 'use client'
 
-import { pusherClient } from '@/lib/pusher'
+import { pusherClient } from '@/lib/pusher-client'
 import { chatHrefConstructor, toPusherKey } from '@/lib/utils'
 import { usePathname, useRouter } from 'next/navigation'
 import { FC, useEffect, useState } from 'react'
@@ -28,7 +28,6 @@ const SidebarChatList: FC<SidebarChatListProps> = ({ friends, sessionId }) => {
     pusherClient.subscribe(toPusherKey(`user:${sessionId}:friends`))
 
     const newFriendHandler = (newFriend: User) => {
-      console.log("received new user", newFriend)
       setActiveChats((prev) => [...prev, newFriend])
     }
 

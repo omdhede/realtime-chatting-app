@@ -7,15 +7,15 @@ import { getServerSession } from 'next-auth'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 
-// The following generateMetadata functiion was written after the video and is purely optional
 export async function generateMetadata({
   params,
 }: {
-  params: { chatId: string }
+  params: Promise<{ chatId: string }>
 }) {
+  const { chatId } = await params
   const session = await getServerSession(authOptions)
   if (!session) notFound()
-  const [userId1, userId2] = params.chatId.split('--')
+  const [userId1, userId2] = chatId.split('--')
   const { user } = session
 
   const chatPartnerId = user.id === userId1 ? userId2 : userId1
@@ -29,9 +29,9 @@ export async function generateMetadata({
 }
 
 interface PageProps {
-  params: {
+  params: Promise<{
     chatId: string
-  }
+  }>
 }
 
 async function getChatMessages(chatId: string) {
@@ -56,7 +56,7 @@ async function getChatMessages(chatId: string) {
 }
 
 const page = async ({ params }: PageProps) => {
-  const { chatId } = params
+  const { chatId } = await params
   const session = await getServerSession(authOptions)
   if (!session) notFound()
 
@@ -69,7 +69,6 @@ const page = async ({ params }: PageProps) => {
   }
 
   const chatPartnerId = user.id === userId1 ? userId2 : userId1
-  // new
 
   const chatPartnerRaw = (await fetchRedis(
     'get',

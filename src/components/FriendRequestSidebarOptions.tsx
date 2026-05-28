@@ -1,6 +1,6 @@
 'use client'
 
-import { pusherClient } from '@/lib/pusher'
+import { pusherClient } from '@/lib/pusher-client'
 import { toPusherKey } from '@/lib/utils'
 import { User } from 'lucide-react'
 import Link from 'next/link'
